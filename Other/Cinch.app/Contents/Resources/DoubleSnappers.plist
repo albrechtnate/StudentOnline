@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>net.sourceforge.audacity</string>
+	<string>com.barebones.bbedit</string>
+	<string>stanza</string>
+	<string>net.kovidgoyal.calibre</string>
+	<string>Microsoft/com.microsoft.Messenger</string>
+	<string>com.microsoft.Messenger</string>
+	<string>com.microsoft.Entourage</string>
+	<string>com.microsoft.Excel</string>
+	<string>com.microsoft.Powerpoint</string>
+	<string>com.microsoft.Word</string>
+	<string>org.lyx.lyx</string>
+	<string>org.mozilla.thunderbird</string>
+	<string>org.mozilla.firefox</string>
+	<string>com.adobe.ame.application</string>
+	<string>com.adobe.devicecentral-2.0</string>
+	<string>com.imagineersystems.com.mochaforaftereffects</string>
+	<string>com.adobe.AfterEffects</string>
+	<string>com.adobe.Encore</string>
+	<string>com.adobe.AdobeOnLocation</string>
+	<string>com.adobe.AdobePremierePro</string>
+	<string>com.adobe.Soundbooth</string>
+	<string>com.adobe.thermo</string>
+	<string>com.4d.4d</string>
+	<string>com.Google.GoogleEarthPlus</string>
+	<string>com.Google.GoogleEarth</string>
+	<string>org.eclipse.eclipse</string>
+	<string>com.macromedia.Flash Player.app</string>
+	<string>com.macromedia.flashplayer.8</string>
+	<string>com.macromedia.flashplayer.9</string>
+	<string>com.macromedia.flashplayer.10</string>
+	<string>com.irradiatedsoftware.TestWindowDS</string>
+</array>
+</plist>

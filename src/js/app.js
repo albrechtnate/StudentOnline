@@ -16,57 +16,90 @@
 // 	request.onerror = studentonline.indexedDB.onerror;
 // };
 
-var idbSupported = false;
-var db;
+// var personSection = document.getElementById("person");
 
-document.addEventListener("DOMContentLoaded", function(){
+// function domInsert(i) {
+// 	x = document.createElement('p');
+// 	x.innerText = i;
+// 	personSection.appendChild(x);
+// }
 
-    if("indexedDB" in window) {
-        idbSupported = true;
+// var idbSupported = false;
+// var db;
+
+// document.addEventListener("DOMContentLoaded", function(){
+
+//     if("indexedDB" in window) {
+//         idbSupported = true;
+//     }
+
+//     if(idbSupported) {
+//         var openRequest = indexedDB.open("new", 6);
+
+//         openRequest.onupgradeneeded = function(e) {
+//             console.log("Upgrading...");
+//             var thisDB = e.target.result;
+
+//             if(!thisDB.objectStoreNames.contains("people")) {
+//                 thisDB.createObjectStore("people", { autoIncrement: true} );
+//             }
+//         }
+
+//         openRequest.onsuccess = function(e) {
+//             console.log("Success!");
+//             db = e.target.result;
+
+//             var transaction = db.transaction(["people"],"readwrite");
+//             var store = transaction.objectStore("people");
+
+//             var person = {
+//             	name: "Joe",
+//             	email: "smith@nz.com",
+//             	created: new Date()
+//             }
+
+//             var request = store.add(person);
+
+//             request.onsuccess = function(e) {
+//             	console.log("Value Added to Database");
+//             }
+
+//             request.onerror = function(e) {
+//             	console.log("Error adding value to database. ");
+//             	console.dir(e);
+//             }
+
+//             var thing = store.get(43);
+//             thing.onsuccess = function(x) {
+//             	result = x.target.result;
+//             	for (i in result) {
+//             		domInsert(result[i]);
+//             	}
+//             }
+//         }
+
+//         openRequest.onerror = function(e) {
+//             console.log("Error");
+//             console.dir(e);
+//         }
+
+//     }
+
+// },false);
+
+function loadContent(file) {
+
+    xmlhttp=new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange=function() {
+
+	    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+	        document.getElementById("content-section").innerHTML=xmlhttp.responseText;
+	    }
     }
 
-    if(idbSupported) {
-        var openRequest = indexedDB.open("test", 6);
+    xmlhttp.open("GET",file+".php", true);
+    xmlhttp.send();
+}
 
-        openRequest.onupgradeneeded = function(e) {
-            console.log("Upgrading...");
-            var thisDB = e.target.result;
-
-            if(!thisDB.objectStoreNames.contains("people")) {
-                thisDB.createObjectStore("people", { autoIncrement: true} );
-            }
-        }
-
-        openRequest.onsuccess = function(e) {
-            console.log("Success!");
-            db = e.target.result;
-
-            var transaction = db.transaction(["people"],"readwrite");
-            var store = transaction.objectStore("people");
-
-            var person = {
-            	name: "Nick",
-            	email: "google@email.com",
-            	created: new Date()
-            }
-
-            var request = store.add(person);
-
-            request.onsuccess = function(e) {
-            	console.log("Value Added to Database");
-            }
-
-            request.onerror = function(e) {
-            	console.log("Error adding value to database. ");
-            	console.dir(e);
-            }
-        }
-
-        openRequest.onerror = function(e) {
-            console.log("Error");
-            console.dir(e);
-        }
-
-    }
-
-},false);
+loadContent("profile");

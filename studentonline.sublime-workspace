@@ -4,26 +4,6 @@
 		"selected_items":
 		[
 			[
-				"pe",
-				"personSection"
-			],
-			[
-				"f",
-				"for	for (…) {…}"
-			],
-			[
-				"on",
-				"onerror"
-			],
-			[
-				"st",
-				"store"
-			],
-			[
-				"re",
-				"request"
-			],
-			[
 				"att",
 				"attachmentuid"
 			],
@@ -46,26 +26,6 @@
 		"height": 400.0,
 		"selected_items":
 		[
-			[
-				"ph",
-				"Set Syntax: PHP"
-			],
-			[
-				"html",
-				"Set Syntax: HTML"
-			],
-			[
-				"php",
-				"Set Syntax: PHP"
-			],
-			[
-				"pack",
-				"Package Control: Install Package"
-			],
-			[
-				"synta",
-				"Set Syntax: PHP"
-			],
 			[
 				"set mar",
 				"Set Syntax: Markdown"
@@ -91,6 +51,10 @@
 				"Package Control: Remove Package"
 			],
 			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
 				"instal",
 				"Package Control: Install Package"
 			],
@@ -107,7 +71,7 @@
 				"View: Toggle Side Bar"
 			]
 		],
-		"width": 457.0
+		"width": 560.0
 	},
 	"console":
 	{
@@ -126,20 +90,12 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/Users/Nathaniel/Documents/StudentOnline"
+	],
 	"file_history":
 	[
-		"/Users/Nathaniel/Documents/StudentOnline/dist/Modules/student_personal_info.php",
-		"/Users/Nathaniel/Documents/StudentOnline/dist/ajax-test.php",
-		"/Users/Nathaniel/Documents/StudentOnline/dist/profile.php",
-		"/Users/Nathaniel/Documents/StudentOnline/src/js/app.js",
-		"/Users/Nathaniel/Documents/StudentOnline/dist/app.html",
-		"/Users/Nathaniel/Documents/StudentOnline/dist/untitled folder/student_personal_info.php",
-		"/Users/Nathaniel/Documents/StudentOnline/dist/app.css",
-		"/Users/Nathaniel/Documents/StudentOnline/src/scss/modules/_box.scss",
-		"/Users/Nathaniel/Documents/StudentOnline/src/js/foundation/foundation.js",
-		"/Users/Nathaniel/Documents/StudentOnline/src/js/foundation.js",
-		"/Users/Nathaniel/Documents/StudentOnline/src/scss/foundation/_settings.scss",
-		"/Users/Nathaniel/Documents/StudentOnline/src/scss/app.scss",
 		"/Users/Nathaniel/Documents/StudentOnline/dist/pouchdb-getting-started-todo/index.html",
 		"/Users/Nathaniel/Documents/StudentOnline/dist/pouchdb-getting-started-todo/js/app.js",
 		"/Users/Nathaniel/Documents/StudentOnline/Other/user_settingss.txt",
@@ -147,11 +103,16 @@
 		"/Users/Nathaniel/Documents/Troop_191_Website/Troop 191 New Website/phpincludes/submit.php",
 		"/Users/Nathaniel/Documents/Troop_191_Website/Troop 191 New Website/announcements.php",
 		"/Users/Nathaniel/Documents/StudentOnline/notes/CSS-Styleguide.scss",
+		"/Users/Nathaniel/Documents/StudentOnline/src/scss/app.scss",
+		"/Users/Nathaniel/Documents/StudentOnline/dist/app.css",
 		"/Users/Nathaniel/Documents/StudentOnline/notes/CSS-Styleguide",
 		"/Users/Nathaniel/Documents/StudentOnline/.gitignore",
+		"/Users/Nathaniel/Documents/StudentOnline/src/scss/modules/_box.scss",
+		"/Users/Nathaniel/Documents/StudentOnline/dist/app.html",
 		"/Users/Nathaniel/Documents/StudentOnline/src/scss/master.scss",
 		"/Users/Nathaniel/Documents/StudentOnline/dist/master.css",
 		"/Users/Nathaniel/Documents/StudentOnline/src/scss/foundation/components/_global.scss",
+		"/Users/Nathaniel/Documents/StudentOnline/src/scss/foundation/_settings.scss",
 		"/Users/Nathaniel/Documents/StudentOnline/src/scss/foundation/app.html",
 		"/Users/Nathaniel/Documents/StudentOnline/src/scss/_normalize.scss",
 		"/Users/Nathaniel/Documents/StudentOnline/src/scss/foundation/components/_accordion.scss",
@@ -168,7 +129,7 @@
 	],
 	"find":
 	{
-		"height": 42.0
+		"height": 30.0
 	},
 	"find_in_files":
 	{
@@ -184,7 +145,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"personSection",
 			"settings",
 			"import \"_settings\";"
 		],

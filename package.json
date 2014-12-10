@@ -1,0 +1,27 @@
+{
+  "name": "StudentOnline",
+  "version": "1.0.0",
+  "description": "StudentOnline is a web application designed to help Teachers, Students, and Administrators manage their grades and academic lives online.",
+  "scripts": {
+    "postinstall": "bower install",
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/photoguy2801/StudentOnline.git"
+  },
+  "keywords": [
+    "Student",
+    "Teacher",
+    "School",
+    "Grades",
+    "Academic"
+  ],
+  "author": "Nathaniel Albrecht",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/photoguy2801/StudentOnline/issues"
+  },
+  "homepage": "https://github.com/photoguy2801/StudentOnline",
+  "private": true
+}

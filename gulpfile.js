@@ -23,7 +23,7 @@ gulp.task('styles', function() {
 	// Hack: Turning off sourcemaps til gulp-ruby-sass goes to 1.0.0
 	// https://github.com/sindresorhus/gulp-autoprefixer/issues/20
 	// http://stackoverflow.com/questions/26979433/gulp-with-gulp-ruby-sass-error-style-css-map31-unknown-word
-	.pipe(sass({"sourcemap=none": true, "style": "nested"})).on('error', function(err){
+	.pipe(sass({"sourcemap=none": true})).on('error', function(err){
 		console.log('******** SASS ERROR' + err);
 	})
 	.pipe(prefix())

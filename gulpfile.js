@@ -7,16 +7,20 @@ var gulp = require('gulp'),
 
 gulp.task('connect', function() {
 	connect.server({
-		root: 'app/',
+		root: 'build/',
 		livereload: true
 	});
 });
 
 function reload() {
 	console.log("Reloading!!");
-	return gulp.src('app/*.html')
+	return gulp.src('build/*.html')
 		.pipe(connect.reload());
 }
+
+// gulp.task('buildTemplates', function() {
+// 	gulp.src('app/*.html')
+// });
 
 gulp.task('styles', function() {
 	return gulp.src('app/scss/*.scss')
@@ -28,7 +32,7 @@ gulp.task('styles', function() {
 	})
 	.pipe(prefix())
 	.pipe(minifyCSS())
-	.pipe(gulp.dest('app/'))
+	.pipe(gulp.dest('build/'))
 	.on('end', function() {
 		reload();
 	});

@@ -98,7 +98,7 @@ function loadContent(file) {
 	    }
     }
 
-    xmlhttp.open("GET",file+".php", true);
+    xmlhttp.open("GET","pages/"+file+".php", true);
     xmlhttp.send();
 }
 

@@ -51,3 +51,4 @@ if ($q !== "")
 // or output the correct values
 echo $hint==="" ? "no suggestion" : $hint;
 ?>
+<h1>Testing Time</h1>

@@ -43,6 +43,47 @@ $modules: () !default;
   @return $num / ($num * 0 + 1);
 }
 
+// TEXT INPUT TYPES
+
+@function text-inputs( $types: all, $selector: input ) {
+
+    $return: ();
+
+    $all-text-input-types:
+      text
+      password
+      date
+      datetime
+      datetime-local
+      month
+      week
+      email
+      number
+      search
+      tel
+      time
+      url
+      color
+      textarea;
+
+    @if $types == all { $types: $all-text-input-types; }
+
+    @each $type in $types {
+        @if $type == textarea {
+            @if $selector == input {
+              $return: append($return, unquote('#{$type}'), comma)
+            } @else {
+              $return: append($return, unquote('#{$type}#{$selector}'), comma)
+            }
+        } @else {
+            $return: append($return, unquote('#{$selector}[type="#{$type}"]'), comma)
+        }
+    }
+
+    @return $return;
+
+}
+
 // CONVERT TO REM
 @function convert-to-rem($value, $base-value: $rem-base)  {
   $value: strip-unit($value) / strip-unit($base-value) * 1rem;

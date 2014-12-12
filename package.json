@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "StudentOnline is a web application designed to help Teachers, Students, and Administrators manage their grades and academic lives online.",
   "scripts": {
-    "start": "cls && gulp"
+    "start": "gulp",
+    "ustart": "clear && gulp",
+    "wstart": "cls && gulp"
   },
   "repository": {
     "type": "git",

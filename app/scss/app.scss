@@ -4,13 +4,13 @@
 
 /* Foundation*/
 
-@import "foundation/settings";
-@import "foundation";
+// @import "foundation/settings";
+// @import "foundation";  // Ruby Sass on Christina-PC not compiling foundation correctly. Repeats _global resulting in huge file size.
 
 /* Modules! */
 
 @import "modules/box";
 
 body{
-	background-color: lighten(tomato, 30);
+	background-color: lighten(tomato, 20);
 }

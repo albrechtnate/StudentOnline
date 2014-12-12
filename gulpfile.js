@@ -2,7 +2,8 @@ var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	connect = require('gulp-connect'),
 	sass = require('gulp-ruby-sass'),
-	prefix = require('gulp-autoprefixer');
+	prefix = require('gulp-autoprefixer'),
+	minifyCSS = require('gulp-minify-css');
 
 gulp.task('connect', function() {
 	connect.server({
@@ -26,6 +27,7 @@ gulp.task('styles', function() {
 		console.log('******** SASS ERROR' + err);
 	})
 	.pipe(prefix())
+	.pipe(minifyCSS())
 	.pipe(gulp.dest('app/'))
 	.on('end', function() {
 		reload();

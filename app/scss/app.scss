@@ -1,16 +1,16 @@
 /* Normalize */
 
-// @import "normalize";
+@import "normalize";
 
 /* Foundation*/
 
-// @import "foundation/settings";
+@import "foundation/settings";
 @import "foundation";
 
 /* Modules! */
 
-// @import "modules/box";
+@import "modules/box";
 
-// body{
-// 	background-color: lighten(tomato, 20);
-// }
+body{
+	background-color: lighten(tomato, 30);
+}

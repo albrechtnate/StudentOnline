@@ -10,7 +10,10 @@ Thesis: *Prove by example that "Web applications, with the technology available 
 - Install Ruby following online tutorials, and install Sass from *'http://sass-lang.com/install'* following their instructions
 - Install Gulp Globally by typing *'npm install -g gulp'* (May need to prepend *sudo* to the command)
 - Traverse within command line to project folder and run *'npm install'*
-- Following sucessful installation of all Node packages, run *'npm start* or alternatively *'gulp*
+- Following sucessful installation of all Node packages, run *'npm start*
+- This will start a local web server on *http://localhost:8080* with livereload inclueded
+	- This will compile sass and minify & concatenate files
+	- **Important: To stop the server and use the command line again, press Ctrl+C**
 
 ## Project Goals:
 - Must work with 3 different views/access-levels (Student, Teacher, Administrator)

@@ -1,4 +1,14 @@
 .box{
-	color: blue;
-	filter: blur(2px);
+	@include panel();
+	transition: all 1s ease;
+
+	&:hover{
+		filter: blur(2px);
+		background-color: $jet;
+
+		h3,li{
+			color: $snow;
+			transition: all 1s ease;
+		}
+	}
 }

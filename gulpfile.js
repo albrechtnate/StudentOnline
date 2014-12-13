@@ -45,7 +45,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('default', ['connect', 'buildTemplates', 'styles'], function() {
-	gulp.watch('app/scss/*.scss',['styles']);
+	gulp.watch('app/scss/**/*.scss',['styles']);
 	gulp.watch('app/**/*.html', ['buildTemplates']);
 	console.log("\x1b[42mReady to Work\x1b[0m");
 	return reload();

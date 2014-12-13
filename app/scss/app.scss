@@ -12,5 +12,16 @@
 @import "modules/box";
 
 body{
-	background-color: lighten(#3bc574, 20);
+	// background-color: lighten(#3bc574, 20);
 }
+
+.sidebar{
+	background-color: $secondary-color;
+	padding: 32px 20px;
+}
+
+.mini-header{
+	// font-size: 0.77778rem;
+	font-weight: bold;
+}
+

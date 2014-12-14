@@ -11,7 +11,7 @@ Thesis: *Prove by example that "Web applications, with the technology available 
 - Install Gulp Globally by typing *'npm install -g gulp'* (May need to prepend *sudo* to the command)
 - Traverse within command line to project folder and run *'npm install'*
 - Following sucessful installation of all Node packages, if on a Mac/Unix, run *'npm run ustart*, if on Windows run *'npm run wstart'*, or if neither work, *'npm start'*
-- This will start a local web server on *http://localhost:8080* with livereload inclueded
+- This will start a local web server on *http://localhost:8080* with livereload included
 	- This will compile sass and minify & concatenate files
 	- **Important: To stop the server and use the command line again, press Ctrl+C**
 

@@ -3,7 +3,9 @@ var gulp = require('gulp'),
 	connect = require('gulp-connect'),
 	sass = require('gulp-ruby-sass'),
 	prefix = require('gulp-autoprefixer'),
-	minifyCSS = require('gulp-minify-css');
+	minifyCSS = require('gulp-minify-css'),
+	jshint = require('gulp-jshint'),
+	uglify = require('gulp-uglifyjs');
 
 gulp.task('connect', function() {
 	connect.server({
@@ -44,9 +46,26 @@ gulp.task('styles', function() {
 	});
 });
 
-gulp.task('default', ['connect', 'buildTemplates', 'styles'], function() {
-	gulp.watch('app/scss/**/*.scss',['styles']);
+gulp.task('scripts', function() {
+	console.log("Processing Javascript");
+	gulp.src('app/js/custom/*.js')
+	.pipe(jshint())
+	.pipe(jshint.reporter('default'));
+	gulp.src('app/js/+(vendor|foundation)/*.js')
+	.pipe(uglify("jsdependencies.js"))
+	.pipe(gulp.dest('build/'));
+	gulp.src('app/js/custom/*.js')
+	.pipe(uglify("app.js"))
+	.pipe(gulp.dest('build/'))
+	.on('end', function() {
+		reload();
+	});
+});
+
+gulp.task('default', ['connect', 'buildTemplates', 'styles', 'scripts'], function() {
 	gulp.watch('app/**/*.html', ['buildTemplates']);
+	gulp.watch('app/scss/**/*.scss',['styles']);
+	gulp.watch('app/js/**/*.js',['scripts']);
 	console.log("\x1b[42mReady to Work\x1b[0m");
 	return reload();
 });

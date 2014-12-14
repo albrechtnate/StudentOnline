@@ -3,9 +3,12 @@
 <head>
 
 <link rel="stylesheet" href="app.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
 </head>
 <body>
+
+<span data-alert />  <!-- Hack to allow alerts to close via javascript on click. http://stackoverflow.com/questions/14590172/zurb-foundation-alerts -->
 
 <div class="row">
     <div class="columns small-4">
@@ -25,6 +28,9 @@
     </div>
 </div>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="jsdependencies.js"></script>
+<script> $(document).foundation(); </script>
 <script src="app.js"></script>
 
 </body>

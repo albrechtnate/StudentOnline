@@ -96,10 +96,11 @@ function loadContent(file) {
 	    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 	        document.getElementById("content-section").innerHTML=xmlhttp.responseText;
 	    }
-    }
+    };
 
-    xmlhttp.open("GET","pages/"+file+".php", true);
+    xmlhttp.open("GET","pages/"+file+".html", true);
     xmlhttp.send();
+    console.log("Ajax fetched: " + file + ".html");
 }
 
-loadContent("profile");
+loadContent("dashboard");

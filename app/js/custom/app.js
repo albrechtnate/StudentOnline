@@ -1,5 +1,3 @@
-//@prepros-prepend js-modules/*.js
-
 // var studentonline = {};
 // studentonline.indexedDB = {};
 

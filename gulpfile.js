@@ -52,10 +52,10 @@ gulp.task('scripts', function() {
 	.pipe(jshint())
 	.pipe(jshint.reporter('default'));
 	gulp.src('app/js/+(vendor|foundation)/*.js')
-	.pipe(uglify("jsdependencies.js"))
+	.pipe(uglify("jsdependencies.js").on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
 	.pipe(gulp.dest('build/'));
 	gulp.src('app/js/custom/*.js')
-	.pipe(uglify("app.js"))
+	.pipe(uglify("app.js").on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
 	.pipe(gulp.dest('build/'))
 	.on('end', function() {
 		reload();

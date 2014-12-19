@@ -29,6 +29,15 @@ gulp.task('buildTemplates', function() {
 	});
 });
 
+gulp.task('buildResources', function() {
+	console.log("Processing Resources");
+	gulp.src('app/resources/**/*')
+	.pipe(gulp.dest('build/resources'))
+	.on('end', function() {
+		reload();
+	});
+});
+
 gulp.task('styles', function() {
 	console.log("Processing Styles");
 	return gulp.src('app/scss/*.scss')
@@ -62,8 +71,9 @@ gulp.task('scripts', function() {
 	});
 });
 
-gulp.task('default', ['connect', 'buildTemplates', 'styles', 'scripts'], function() {
+gulp.task('default', ['connect', 'buildTemplates', 'buildResources', 'styles', 'scripts'], function() {
 	gulp.watch('app/**/*.html', ['buildTemplates']);
+	gulp.watch('app/resources/**/*', ['buildResources']);
 	gulp.watch('app/scss/**/*.scss',['styles']);
 	gulp.watch('app/js/**/*.js',['scripts']);
 	console.log("\x1b[42mReady to Work\x1b[0m");

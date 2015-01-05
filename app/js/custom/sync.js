@@ -13,8 +13,18 @@ function loadJSON(file) {
 
 $(document).ready(function(){
 			var url="resources/sample_profile_data.json";
-			$.getJSON(url,function(json){
-				console.log("Success");
-			});
+			$.getJSON(url)
+			.done(function(json){
+				student = json.student;
+				console.log(student.LastName);
+				return student;
+			})
+			.fail(function(jqxhr, textStatus, error){
+				var err = textStatus + ", " + error;
+				console.log( "Request Failed: " + err );
+			})
+			;
 		});
 }
+
+loadJSON();

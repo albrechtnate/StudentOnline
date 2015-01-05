@@ -1,18 +1,18 @@
 {
   "student": {
-    "Last Name": "Albrecht",
-    "First_Name": "Nathaniel",
+    "LastName": "Albrecht",
+    "FirstName": "Nathaniel",
     "Photo": "http://cdn.meme.am/images/300x/68999.jpg",
-    "Grade_Level": "12th",
+    "GradeLevel": "12th",
     "Homeroom": "12A",
-    "Homeroom_Room": "212",
+    "HomeroomRoom": "212",
     "Locker": "614",
-    "Locker_Combination": "24 31 18",
+    "LockerCombination": "24 31 18",
     "Classes": {
       "3714": {
-        "Class_Name": "Physics",
-        "Teacher_Last_Name": "Liu",
-        "Teacher_First_Name": "Richard",
+        "ClassName": "Physics",
+        "TeacherLastName": "Liu",
+        "TeacherFirstName": "Richard",
         "Period": [
           "2",
           "2",

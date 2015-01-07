@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	connect = require('gulp-connect'),
-	sass = require('gulp-ruby-sass'),
+	sass = require('gulp-sass'),
 	prefix = require('gulp-autoprefixer'),
 	minifyCSS = require('gulp-minify-css'),
 	jshint = require('gulp-jshint'),
@@ -41,11 +41,8 @@ gulp.task('buildResources', function() {
 gulp.task('styles', function() {
 	console.log("Processing Styles");
 	return gulp.src('app/scss/*.scss')
-	// Hack: Turning off sourcemaps til gulp-ruby-sass goes to 1.0.0
-	// https://github.com/sindresorhus/gulp-autoprefixer/issues/20
-	// http://stackoverflow.com/questions/26979433/gulp-with-gulp-ruby-sass-error-style-css-map31-unknown-word
-	.pipe(sass({"sourcemap=none": true, "quiet": true})).on('error', function(err){
-		console.log('******** SASS ERROR' + err);
+	.pipe(sass()).on('error', function(err){
+		console.log('******** Sass ERROR: ' + err);
 	})
 	.pipe(prefix())
 	.pipe(minifyCSS())

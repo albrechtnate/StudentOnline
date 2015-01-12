@@ -8,17 +8,22 @@ function IDBSupported() {
 
 function establishIDB() {
 	if (idbSupported) {
-		var request = window.indexedDB.open("data", 2);
+		var version = 7;
+		var request = window.indexedDB.open("data", version);
 		request.onupgradeneeded = function(e) {
 			console.log("Upgrading...");
 			db = e.target.result;
+			if(db.objectStoreNames.contains("student")) {
+				db.deleteObjectStore("student");
+			}
 			if (!db.objectStoreNames.contains("student")) {
-        		db.createObjectStore("student");
-        	}
+				db.createObjectStore("student", { autoIncrement: true });
+			}
 		};
 		request.onsuccess = function(e) {
 			console.log("Success!");
 			db = e.target.result;
+			insertData();
 		};
 		request.onerror = function(e) {
 			console.log("Error");
@@ -40,15 +45,15 @@ function loadJSON(file) {
 		});
 }
 
-function insertData(data) {
-	var transaction = db.transaction(["data"],"readwrite");
+function insertData() {
+	var transaction = db.transaction(["student"],"readwrite");
 	var store = transaction.objectStore("student");
-var person = {
-    name:"John",
-    email:"jsmith@yahoo.com",
-    created:new Date()
-}
-	var request = store.add(person,1);
+	var person = {
+		name: "Jonathon",
+		email: "jsmith@yahoo.com",
+		created: new Date()
+	};
+	var request = store.put(person);
 }
 
 
@@ -57,6 +62,5 @@ var person = {
 		IDBSupported();
 		establishIDB();
 		loadJSON();
-		insertData();
 	});
 })();

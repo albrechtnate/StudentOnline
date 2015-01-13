@@ -7,7 +7,6 @@ Thesis: *Prove by example that "Web applications, with the technology available 
 ## To Begin Working With This Repo...
 - Install Git and Clone this Project with *'git clone https://github.com/photoguy2801/StudentOnline.git'*
 - Install NodeJS (Make sure NPM is checked during installation)
-- Install Ruby following online tutorials, and install Sass from *'http://sass-lang.com/install'* following their instructions
 - Install Gulp Globally by typing *'npm install -g gulp'* (May need to prepend *sudo* to the command)
 - Traverse within command line to project folder and run *'npm install'*
 - Following sucessful installation of all Node packages, if on a Mac/Unix, run *'npm run ustart*, if on Windows run *'npm run wstart'*, or if neither work, *'npm start'*

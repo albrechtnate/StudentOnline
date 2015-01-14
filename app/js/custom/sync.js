@@ -37,6 +37,7 @@ function loadJSON(file) {
 	var url="resources/sample_profile_data.json";
 	$.getJSON(url)
 		.done(function(json){
+			// console.log(json);
 			// parseJSON(json.student);
 		})
 		.fail(function(jqxhr, textStatus, error){
@@ -49,13 +50,44 @@ function insertData() {
 	var transaction = db.transaction(["student"],"readwrite");
 	var store = transaction.objectStore("student");
 	var person = {
-		name: "Jonathon",
+		name: {
+			first: "Jonathon",
+			last: "Smith"
+		},
 		email: "jsmith@yahoo.com",
 		created: new Date()
 	};
-	var request = store.put(person);
+// console.log(person);
+
+	getProperties(person);
+
+	// for (var i = 0; i < person.length; i++) {
+	//     for (var prop in person[i]) {
+	//         if (person[i].hasOwnProperty(prop)) {
+	//             alert(person[i][prop]);
+	//         }
+	//     }
+	// }
+
+	// var request = store.put(person);
 }
 
+function getProperties(object) {
+	for (var key in object) {
+		console.log(object[key]);
+		moreProps(object[key]);
+	}
+}
+
+function moreProps(possibleobject){
+	if (Object.keys(possibleobject).length !== 0){
+		console.log("Has properties");
+		// getProperties(possibleobject);
+	}
+	else{
+		console.log("No more nested objects");
+	}
+}
 
 (function () {
 	document.addEventListener("DOMContentLoaded", function(){

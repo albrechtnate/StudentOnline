@@ -8,7 +8,7 @@ function IDBSupported() {
 
 function establishIDB() {
 	if (idbSupported) {
-		var version = 7;
+		var version = 9;
 		var request = window.indexedDB.open("data", version);
 		request.onupgradeneeded = function(e) {
 			console.log("Upgrading...");
@@ -17,13 +17,12 @@ function establishIDB() {
 				db.deleteObjectStore("student");
 			}
 			if (!db.objectStoreNames.contains("student")) {
-				db.createObjectStore("student", { autoIncrement: true });
+				db.createObjectStore("student");
 			}
 		};
 		request.onsuccess = function(e) {
-			console.log("Success!");
 			db = e.target.result;
-			insertData();
+			loadJSON();
 		};
 		request.onerror = function(e) {
 			console.log("Error");
@@ -37,8 +36,7 @@ function loadJSON(file) {
 	var url="resources/sample_profile_data.json";
 	$.getJSON(url)
 		.done(function(json){
-			// console.log(json);
-			// parseJSON(json.student);
+			insertIntoIDB(json);
 		})
 		.fail(function(jqxhr, textStatus, error){
 			var err = textStatus + ", " + error;
@@ -46,46 +44,27 @@ function loadJSON(file) {
 		});
 }
 
-function insertData() {
+function insertIntoIDB(object) {
 	var transaction = db.transaction(["student"],"readwrite");
 	var store = transaction.objectStore("student");
-	var person = {
-		name: {
-			first: "Jonathon",
-			last: "Smith"
-		},
-		email: "jsmith@yahoo.com",
-		created: new Date()
-	};
-// console.log(person);
-
-	getProperties(person);
-
-	// for (var i = 0; i < person.length; i++) {
-	//     for (var prop in person[i]) {
-	//         if (person[i].hasOwnProperty(prop)) {
-	//             alert(person[i][prop]);
-	//         }
-	//     }
-	// }
-
-	// var request = store.put(person);
+	var request = store.put(object, "test");
 }
 
 function getProperties(object) {
 	for (var key in object) {
-		console.log(object[key]);
-		moreProps(object[key]);
+		if (moreProps(object[key]) === false){
+			console.log(key + ": " + object[key]);
+			insertIntoIDB(key, object[key]);
+		}
 	}
 }
 
 function moreProps(possibleobject){
-	if (Object.keys(possibleobject).length !== 0){
-		console.log("Has properties");
-		// getProperties(possibleobject);
+	if (typeof possibleobject == "object" && Object.getOwnPropertyNames(possibleobject).length > 0){
+		getProperties(possibleobject);
 	}
 	else{
-		console.log("No more nested objects");
+		return false;
 	}
 }
 
@@ -93,6 +72,5 @@ function moreProps(possibleobject){
 	document.addEventListener("DOMContentLoaded", function(){
 		IDBSupported();
 		establishIDB();
-		loadJSON();
 	});
 })();

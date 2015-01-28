@@ -13,17 +13,7 @@
         "ClassName": "Physics",
         "TeacherLastName": "Liu",
         "TeacherFirstName": "Richard",
-        "Period": [
-          "2",
-          "2",
-          [
-            "2",
-            "4"
-          ],
-          "8",
-          "8",
-          "2"
-        ]
+        "Period": ["2","2",["2","4"],"8","8","2"]
       }
     }
   }

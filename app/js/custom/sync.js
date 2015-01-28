@@ -8,7 +8,7 @@ function IDBSupported() {
 
 function establishIDB() {
 	if (idbSupported) {
-		var version = 9;
+		var version = 13;
 		var request = window.indexedDB.open("data", version);
 		request.onupgradeneeded = function(e) {
 			console.log("Upgrading...");
@@ -36,7 +36,7 @@ function loadJSON(file) {
 	var url="resources/sample_profile_data.json";
 	$.getJSON(url)
 		.done(function(json){
-			insertIntoIDB(json);
+			getProperties(json);
 		})
 		.fail(function(jqxhr, textStatus, error){
 			var err = textStatus + ", " + error;
@@ -44,18 +44,18 @@ function loadJSON(file) {
 		});
 }
 
-function insertIntoIDB(object) {
+function insertIntoIDB(key, object) {
 	var transaction = db.transaction(["student"],"readwrite");
 	var store = transaction.objectStore("student");
-	var request = store.put(object, "test");
+	var request = store.put(object, key);
 }
 
 function getProperties(object) {
 	for (var key in object) {
-		if (moreProps(object[key]) === false){
+		// if (moreProps(object[key]) === false){
 			console.log(key + ": " + object[key]);
-			insertIntoIDB(key, object[key]);
-		}
+			// insertIntoIDB(key, object[key]);
+		// }
 	}
 }
 
@@ -74,3 +74,13 @@ function moreProps(possibleobject){
 		establishIDB();
 	});
 })();
+
+// function getDataFromIDB(datakey) {
+// 	var transaction = db.transaction(["student"], "readonly");
+// 	var objectStore = transaction.objectStore("student");
+// 	var ob = objectStore.get("data");
+// 	ob.onsuccess = function(e) {
+// 		var result = e.target.result;
+//         console.log(result["LastName"]);
+// 	};
+// }

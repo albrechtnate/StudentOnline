@@ -19,10 +19,13 @@
   "classes": {
     "3714": {
       "id": "3714",
-      "ClassName": "Physics",
-      "TeacherLastName": "Liu",
-      "TeacherFirstName": "Richard",
-      "Period": [
+      "class": "Physics",
+      "teacher": [
+        "Richard",
+        "Middle Name",
+        "Liu"
+      ],
+      "period": [
         "2",
         "2",
         [

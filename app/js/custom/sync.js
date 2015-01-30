@@ -33,11 +33,7 @@ function establishIDB() {
 
 function loadJSON(file) {
 
-	var url="resources/sample_profile_data.json";
-	$.getJSON(url)
-		.done(function(json){
-			getProperties(json);
-		})
+	j
 		.fail(function(jqxhr, textStatus, error){
 			var err = textStatus + ", " + error;
 			console.log( "Request Failed: " + err );
@@ -52,10 +48,10 @@ function insertIntoIDB(key, object) {
 
 function getProperties(object) {
 	for (var key in object) {
-		// if (moreProps(object[key]) === false){
+		if (moreProps(object[key]) === false){
 			console.log(key + ": " + object[key]);
-			// insertIntoIDB(key, object[key]);
-		// }
+			insertIntoIDB(key, object[key]);
+		}
 	}
 }
 

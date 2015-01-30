@@ -1,20 +1,38 @@
 {
   "student": {
-    "LastName": "Albrecht",
-    "FirstName": "Nathaniel",
-    "Photo": "http://cdn.meme.am/images/300x/68999.jpg",
-    "GradeLevel": "12th",
-    "Homeroom": "12A",
-    "HomeroomRoom": "212",
-    "Locker": "614",
-    "LockerCombination": "24 31 18",
-    "Classes": {
-      "3714": {
-        "ClassName": "Physics",
-        "TeacherLastName": "Liu",
-        "TeacherFirstName": "Richard",
-        "Period": ["2","2",["2","4"],"8","8","2"]
-      }
+    "name": [
+      "Nathaniel",
+      "William",
+      "Albrecht"
+    ],
+    "photo": "http://cdn.meme.am/images/300x/68999.jpg",
+    "grade_level": "12th",
+    "homeroom": "12A",
+    "homeroom_room": "212",
+    "locker": "614",
+    "locker_combo": [
+      "24",
+      "31",
+      "18"
+    ]
+  },
+  "classes": {
+    "3714": {
+      "id": "3714",
+      "ClassName": "Physics",
+      "TeacherLastName": "Liu",
+      "TeacherFirstName": "Richard",
+      "Period": [
+        "2",
+        "2",
+        [
+          "2",
+          "4"
+        ],
+        "8",
+        "8",
+        "2"
+      ]
     }
   }
 }

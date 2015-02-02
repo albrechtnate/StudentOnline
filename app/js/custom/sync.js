@@ -33,7 +33,11 @@ function establishIDB() {
 
 function loadJSON(file) {
 
-	j
+	var url="resources/sample_profile_data.json";
+	$.getJSON(url)
+		.done(function(json){
+			getProperties(json);
+		})
 		.fail(function(jqxhr, textStatus, error){
 			var err = textStatus + ", " + error;
 			console.log( "Request Failed: " + err );
@@ -48,21 +52,21 @@ function insertIntoIDB(key, object) {
 
 function getProperties(object) {
 	for (var key in object) {
-		if (moreProps(object[key]) === false){
+		// if (moreProps(object[key]) === false){
 			console.log(key + ": " + object[key]);
 			insertIntoIDB(key, object[key]);
-		}
+		// }
 	}
 }
 
-function moreProps(possibleobject){
-	if (typeof possibleobject == "object" && Object.getOwnPropertyNames(possibleobject).length > 0){
-		getProperties(possibleobject);
-	}
-	else{
-		return false;
-	}
-}
+// function moreProps(possibleobject){
+// 	if (typeof possibleobject == "object" && Object.getOwnPropertyNames(possibleobject).length > 0){
+// 		getProperties(possibleobject);
+// 	}
+// 	else{
+// 		return false;
+// 	}
+// }
 
 (function () {
 	document.addEventListener("DOMContentLoaded", function(){
@@ -71,12 +75,18 @@ function moreProps(possibleobject){
 	});
 })();
 
-// function getDataFromIDB(datakey) {
-// 	var transaction = db.transaction(["student"], "readonly");
-// 	var objectStore = transaction.objectStore("student");
-// 	var ob = objectStore.get("data");
-// 	ob.onsuccess = function(e) {
-// 		var result = e.target.result;
-//         console.log(result["LastName"]);
-// 	};
-// }
+function getDataFromIDB(datakey, value, optional_second_value) {
+	var transaction = db.transaction(["student"], "readonly");
+	var objectStore = transaction.objectStore("student");
+	var ob = objectStore.get(datakey);
+	optional_second_value = optional_second_value || null;
+	ob.onsuccess = function(e) {
+		var result = e.target.result;
+		if (optional_second_value === null){
+			console.log(result[value]);
+		}
+        else{
+        	console.log(result[value][optional_second_value]);
+        }
+	};
+}

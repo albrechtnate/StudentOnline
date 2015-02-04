@@ -29,6 +29,15 @@ gulp.task('buildTemplates', function() {
 	});
 });
 
+gulp.task('buildTemplatesInsertion', function() {
+	console.log("Processing Template Instertions");
+	gulp.src('app/pages/*.js')
+	.pipe(gulp.dest('build/pages'))
+	.on('end', function() {
+		reload();
+	});
+});
+
 gulp.task('buildResources', function() {
 	console.log("Processing Resources");
 	gulp.src('app/resources/**/*')
@@ -68,8 +77,9 @@ gulp.task('scripts', function() {
 	});
 });
 
-gulp.task('default', ['connect', 'buildTemplates', 'buildResources', 'styles', 'scripts'], function() {
+gulp.task('default', ['connect', 'buildTemplates', 'buildTemplatesInsertion', 'buildResources', 'styles', 'scripts'], function() {
 	gulp.watch('app/**/*.html', ['buildTemplates']);
+	gulp.watch('app/**/pages.js', ['buildTemplatesInsertion']);
 	gulp.watch('app/resources/**/*', ['buildResources']);
 	gulp.watch('app/scss/**/*.scss',['styles']);
 	gulp.watch('app/js/**/*.js',['scripts']);

@@ -12,8 +12,6 @@ function loadContent(file) {
     xmlhttp.open("GET","pages/"+file+".html", true);
     xmlhttp.send();
     console.log("Ajax fetched: " + file + ".html");
-
-    var template-insertion = document.getElementById("template-insertion");
 }
 
-loadContent("dashboard");
+// loadContent("dashboard");

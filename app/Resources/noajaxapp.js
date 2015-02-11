@@ -31,25 +31,31 @@ function establishIDB() {
 	}
 }
 
-function getDataFromIDB(datakey, value, optional_second_value) {
+function getDataFromIDB(callback, elementid, datakey, value, optional_second_value) {
 	var transaction = db.transaction(["student"], "readonly");
 	var objectStore = transaction.objectStore("student");
 	var ob = objectStore.get(datakey);
 	optional_second_value = optional_second_value || null;
-	dfd = $.Deferred();
 	ob.onsuccess = function(e) {
 		var result = e.target.result;
-		if (optional_second_value === null){
-			// return result[value];
-			dfd.resolve("One");
-		}
-        else{
-        	// return result[value][optional_second_value];
-        	dfd.resolve("Two");
-        }
+		if (optional_second_value === null){ callback(elementid, result[value]); }
+        else{ callback(elementid, result[value][optional_second_value]); }
 	};
-	return dfd.promise();
 }
+	// Begin: getDataFromIDB Callback Functions
+	function insertintoDOM(elementid, data){
+		$('#' + elementid).text(data);
+	}
+	function specialalert(elementid, data){
+		alert(data);
+	}
+	// End: getDataFromIDB Callback Functions
+
+function doWork(){
+	getDataFromIDB(insertintoDOM, "pagetitle", "student", "name", "0");
+}
+
+/* ----------------------- End Function Declarations ----------------------- */
 
 (function () {
 	document.addEventListener("DOMContentLoaded", function(){
@@ -57,8 +63,3 @@ function getDataFromIDB(datakey, value, optional_second_value) {
 		establishIDB();
 	});
 })();
-
-function doWork(){
-	console.log(getDataFromIDB("student", "name", "0"));
-	$('#pagetitle').text("HEY!");
-}

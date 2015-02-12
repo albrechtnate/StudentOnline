@@ -22,7 +22,7 @@ function establishIDB() {
 		};
 		request.onsuccess = function(e) {
 			db = e.target.result;
-			doWork();
+			dashboardTemplateInsertion();
 		};
 		request.onerror = function(e) {
 			console.log("Error");
@@ -51,8 +51,11 @@ function getDataFromIDB(callback, elementid, datakey, value, optional_second_val
 	}
 	// End: getDataFromIDB Callback Functions
 
-function doWork(){
+function dashboardTemplateInsertion(){
 	getDataFromIDB(insertintoDOM, "pagetitle", "student", "name", "0");
+	// $("#content-section").append(
+	var test = $(document.createElement('p'));
+	console.log(test);
 }
 
 /* ----------------------- End Function Declarations ----------------------- */

@@ -52,10 +52,14 @@ function getDataFromIDB(callback, elementid, datakey, value, optional_second_val
 	// End: getDataFromIDB Callback Functions
 
 function dashboardTemplateInsertion(){
+	var contentsection = $("#content-section");
+
 	getDataFromIDB(insertintoDOM, "pagetitle", "student", "name", "0");
-	// $("#content-section").append(
-	// var test = $(document.createElement('p'));
-	// console.log(test);
+var span = $(document.createElement('span')).attr("id", "infospan").text("test");
+	var test = $(document.createElement('p')).attr("id", "info").text("Class: ");
+		contentsection.append(test);
+		test.append(span);
+		getDataFromIDB(insertintoDOM, "info", "classes", "3714", "class");
 }
 
 /* ----------------------- End Function Declarations ----------------------- */

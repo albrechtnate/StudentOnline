@@ -54,8 +54,8 @@ function getDataFromIDB(callback, elementid, datakey, value, optional_second_val
 function dashboardTemplateInsertion(){
 	getDataFromIDB(insertintoDOM, "pagetitle", "student", "name", "0");
 	// $("#content-section").append(
-	var test = $(document.createElement('p'));
-	console.log(test);
+	// var test = $(document.createElement('p'));
+	// console.log(test);
 }
 
 /* ----------------------- End Function Declarations ----------------------- */

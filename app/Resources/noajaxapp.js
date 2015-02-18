@@ -55,11 +55,10 @@ function dashboardTemplateInsertion(){
 	var contentsection = $("#content-section");
 
 	getDataFromIDB(insertintoDOM, "pagetitle", "student", "name", "0");
-var span = $(document.createElement('span')).attr("id", "infospan").text("test");
-	var test = $(document.createElement('p')).attr("id", "info").text("Class: ");
+	var test = $(document.createElement('p')).text("Class: ");
+		getDataFromIDB(insertintoDOM, "infospan", "classes", "3714", "class");
+		test.append($(document.createElement('span')).attr("id", "infospan"));
 		contentsection.append(test);
-		test.append(span);
-		getDataFromIDB(insertintoDOM, "info", "classes", "3714", "class");
 }
 
 /* ----------------------- End Function Declarations ----------------------- */

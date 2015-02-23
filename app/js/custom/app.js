@@ -13,7 +13,7 @@ function loadContent(file) {
 	xmlhttp.send();
 	console.log("Ajax fetched: " + file + ".html");
 
-	// loadJSTemplate(file);
+	loadJSTemplate(file);
 }
 
 function loadJSTemplate(file){
@@ -32,4 +32,4 @@ function loadJSTemplate(file){
 	console.log("Ajax fetched: " + file + ".js");
 }
 
-loadContent("dashboard");
+// loadContent("dashboard");

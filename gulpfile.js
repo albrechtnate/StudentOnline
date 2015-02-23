@@ -31,8 +31,8 @@ gulp.task('buildTemplates', function() {
 
 gulp.task('buildTemplatesInsertion', function() {
 	console.log("Processing Template Instertions");
-	gulp.src('app/pages/*.js')
-	.pipe(gulp.dest('build/pages'))
+	gulp.src('app/templates/*.js')
+	.pipe(gulp.dest('build/templates'))
 	.on('end', function() {
 		reload();
 	});

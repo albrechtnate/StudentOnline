@@ -1,6 +1,12 @@
+
+// ----- Database Synchronization: Functions That Manage Syncing between the Remote Server and Indexed Database ----- //
+
+
+// Asynchronously Loads JSON Data Returned By Remote Server
 function loadJSON(file) {
 
 	var url="resources/sample_profile_data.json";
+
 	$.getJSON(url)
 		.done(function(json){
 			getProperties(json);
@@ -11,18 +17,10 @@ function loadJSON(file) {
 		});
 }
 
+// Parses JSON From Remote Server For Insertion Into Indexed Database
 function getProperties(object) {
+
 	for (var key in object) {
-		// if (moreProps(object[key]) === false){
-			console.log(key + ": " + object[key]);
 			insertIntoIDB(key, object[key]);
-		// }
 	}
 }
-
-// (function () {
-// 	document.addEventListener("DOMContentLoaded", function(){
-// 		IDBSupported();
-// 		establishIDB();
-// 	});
-// })();

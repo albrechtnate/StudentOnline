@@ -1,35 +1,13 @@
-function loadContent(file) {
 
-	xmlhttp=new XMLHttpRequest();
+// ----- App : Javascript That Initializes the Application and Runs Other High-Level Functions ----- //
 
-	xmlhttp.onreadystatechange=function() {
 
-		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			document.getElementById("content-section").innerHTML=xmlhttp.responseText;
-		}
-	};
+// Calls a Variety of Functions Once the DOM Content Has Been Loaded
+(function () {
 
-	xmlhttp.open("GET","pages/"+file+".html", true);
-	xmlhttp.send();
-	console.log("Ajax fetched: " + file + ".html");
+	document.addEventListener("DOMContentLoaded", function(){
 
-	loadJSTemplate(file);
-}
-
-function loadJSTemplate(file){
-
-	xmlhttp=new XMLHttpRequest();
-
-	xmlhttp.onreadystatechange=function() {
-
-		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			eval(xmlhttp.responseText);
-		}
-	};
-
-	xmlhttp.open("GET","templates/"+file+".js", true);
-	xmlhttp.send();
-	console.log("Ajax fetched: " + file + ".js");
-}
-
-// loadContent("dashboard");
+		establishIDB();
+		loadContent("dashboard");
+	});
+})();

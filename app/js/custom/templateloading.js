@@ -11,13 +11,13 @@ function loadContent(file) {
 
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			document.getElementById("content-section").innerHTML=xmlhttp.responseText;
+			loadJSTemplate(file);
 		}
 	};
 
 	xmlhttp.open("GET","pages/"+file+".html", true);
 	xmlhttp.send();
 
-	loadJSTemplate(file);
 }
 
 // Asynchronously Loads the Javascript Template for the Requested Page

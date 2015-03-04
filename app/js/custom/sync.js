@@ -10,6 +10,7 @@ function loadJSON(file) {
 	$.getJSON(url)
 		.done(function(json){
 			getProperties(json);
+			loadContent("dashboard");
 		})
 		.fail(function(jqxhr, textStatus, error){
 			var err = textStatus + ", " + error;

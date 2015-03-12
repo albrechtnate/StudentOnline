@@ -79,7 +79,7 @@ gulp.task('scripts', function() {
 
 gulp.task('default', ['connect', 'buildTemplates', 'buildTemplatesInsertion', 'buildResources', 'styles', 'scripts'], function() {
 	gulp.watch('app/**/*.html', ['buildTemplates']);
-	gulp.watch('app/**/pages.js', ['buildTemplatesInsertion']);
+	gulp.watch('app/templates/*.js', ['buildTemplatesInsertion']);
 	gulp.watch('app/resources/**/*', ['buildResources']);
 	gulp.watch('app/scss/**/*.scss',['styles']);
 	gulp.watch('app/js/**/*.js',['scripts']);

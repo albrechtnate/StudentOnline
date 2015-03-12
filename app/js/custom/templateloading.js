@@ -28,7 +28,9 @@ function loadJSTemplate(file){
 	xmlhttp.onreadystatechange=function() {
 
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			eval(xmlhttp.responseText);
+			var script = document.createElement('script');
+			script.innerHTML = xmlhttp.responseText;
+			document.getElementById("content-section").appendChild(script);
 		}
 	};
 

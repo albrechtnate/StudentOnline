@@ -9,7 +9,7 @@ function insertintoDOM(elementid, data){
 }
 
 // Inserts Data into the DOM
-function appendIntoDOM(elementid, data){
+function appendintoDOM(elementid, data){
 
 	var currenttext = $('#' + elementid).text();
 	$('#' + elementid).text(currenttext + data);

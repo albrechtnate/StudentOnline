@@ -15,6 +15,11 @@ function appendintoDOM(elementid, data){
 	$('#' + elementid).text(currenttext + data);
 }
 
+function insertintoAttr(elementid, attribute, data){
+
+	$('#' + elementid).attr(attribute, data);
+}
+
 // Creates an Alert Displaying the Data
 function specialalert(elementid, data){
 

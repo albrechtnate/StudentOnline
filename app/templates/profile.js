@@ -1,0 +1,1 @@
+// getDataFromIDB(insertintoAttr, "profile-img", "student", "name", "0");

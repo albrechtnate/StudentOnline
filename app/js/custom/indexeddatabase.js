@@ -37,7 +37,7 @@ function insertIntoIDB(key, object) {
 }
 
 // Retrieves Data From the Indexed Database
-function getDataFromIDB(callback, elementid, datakey, value, optional_second_value) {
+function getDataFromIDB(datakey, value, optional_second_value, callback) {
 
 	var transaction = db.transaction(["student"], "readonly");
 	var objectStore = transaction.objectStore("student");
@@ -47,10 +47,10 @@ function getDataFromIDB(callback, elementid, datakey, value, optional_second_val
 	ob.onsuccess = function(e) {
 		var result = e.target.result;
 		if (optional_second_value === null){
-			callback(elementid, result[value]);
+			callback(result[value]);
 		}
         else{
-        	callback(elementid, result[value][optional_second_value]);
+        	callback(result[value][optional_second_value]);
         }
 	};
 }

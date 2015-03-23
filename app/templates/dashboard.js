@@ -1,9 +1,7 @@
-// getDataFromIDB(insertintoDOM, "title", "student", "name", "0");
-
-// var test = $(document.createElement('p')).attr("id", "class").text("Class: ");
-// 		getDataFromIDB(appendintoDOM, "class", "classes", "3714", "class");
-// contentsection.append(test);
-
-getDataFromIDB("classes", "3714", "", function(result){
-	$('#title').text(result);
+getDataFromIDB("student", "name", "", function(result){
+	$('#title').text(result[0] + " " + result[2]);
 })
+
+getDataFromIDB("classes", "3714", "classname", function(result){
+	contentsection.append($(document.createElement('p')).attr("id", "classlist").text("Class: " + result));
+});

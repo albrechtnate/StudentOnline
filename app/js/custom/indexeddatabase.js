@@ -21,6 +21,8 @@ function establishIDB() {
 	request.onsuccess = function(e) {
 		db = e.target.result;
 		loadJSON();
+		loadContent("dashboard");
+		diffcheck();
 	};
 	request.onerror = function(e) {
 		console.log("Error");
@@ -42,11 +44,15 @@ function getDataFromIDB(datakey, value, optional_second_value, callback) {
 	var transaction = db.transaction(["student"], "readonly");
 	var objectStore = transaction.objectStore("student");
 	var ob = objectStore.get(datakey);
+	value = value || null;
 	optional_second_value = optional_second_value || null;
 
 	ob.onsuccess = function(e) {
 		var result = e.target.result;
-		if (optional_second_value === null){
+		if (value === null){
+			callback(result);
+		}
+		else if (optional_second_value === null){
 			callback(result[value]);
 		}
         else{

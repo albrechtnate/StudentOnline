@@ -10,12 +10,12 @@ function loadJSON(file) {
 	$.getJSON(url)
 		.done(function(json){
 			getProperties(json);
-			loadContent("dashboard");
 		})
 		.fail(function(jqxhr, textStatus, error){
 			var err = textStatus + ", " + error;
 			console.log( "Request Failed: " + err );
 		});
+
 }
 
 // Parses JSON From Remote Server For Insertion Into Indexed Database
@@ -24,4 +24,10 @@ function getProperties(object) {
 	for (var key in object) {
 			insertIntoIDB(key, object[key]);
 	}
+}
+
+function diffcheck() {
+	window.setInterval(function(){
+		loadJSON();
+	}, 5000);
 }

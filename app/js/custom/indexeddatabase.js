@@ -20,9 +20,8 @@ function establishIDB() {
 	};
 	request.onsuccess = function(e) {
 		db = e.target.result;
-		loadJSON();
-		loadContent("dashboard");
 		diffcheck();
+		loadContent("dashboard");
 	};
 	request.onerror = function(e) {
 		console.log("Error");

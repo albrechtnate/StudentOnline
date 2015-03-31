@@ -11,8 +11,7 @@ function loadJSON(file) {
 		.done(function(json){
 			var shaObj = new jsSHA(JSON.stringify(json), "TEXT");
 			var checksum = shaObj.getHash("SHA-256", "HEX");
-			diffcheck(checksum);
-			getProperties(json);
+			diffcheck(checksum, json);
 		})
 		.fail(function(jqxhr, textStatus, error){
 			var err = textStatus + ", " + error;
@@ -28,6 +27,7 @@ function getProperties(object) {
 	}
 }
 
+// Loads the Data JSON From the Server Every 5 Seconds
 function syncLooper(){
 
 	loadJSON();
@@ -36,18 +36,12 @@ function syncLooper(){
 	}, 5000);
 }
 
-// function diffcheck() {
+// Compares the Checksum of the Newly Loaded JSON Data to That of the Previous and Updates It If Nessecary
+function diffcheck(checksum, json) {
 
-// 	currentChecksum = "";
-// 	loadJSON();
-// 			if (checksum != currentChecksum){
-// 			currentChecksum = checksum;
-// 		}
-// 		console.log("Checksum: " + currentChecksum);
-// 	window.setInterval(function(){
-// 		loadJSON();
-// 		if (checksum != currentChecksum){
-// 			currentChecksum = checksum;
-// 		}
-	// 	console.log("Checksum: " + currentChecksum);
-// }
+	if (typeof currentChecksum === 'undefined' || checksum != currentChecksum){
+		currentChecksum = checksum;
+		getProperties(json);
+		console.warn("Data Update Needed");
+	}
+}

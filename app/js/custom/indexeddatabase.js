@@ -20,7 +20,7 @@ function establishIDB() {
 	};
 	request.onsuccess = function(e) {
 		db = e.target.result;
-		diffcheck();
+		syncLooper();
 		loadContent("dashboard");
 	};
 	request.onerror = function(e) {

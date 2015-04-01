@@ -39,7 +39,11 @@ function syncLooper(){
 // Compares the Checksum of the Newly Loaded JSON Data to That of the Previous and Updates It If Nessecary
 function diffcheck(checksum, json) {
 
-	if (typeof currentChecksum === 'undefined' || checksum != currentChecksum){
+	if (typeof currentChecksum === 'undefined'){
+		currentChecksum = checksum;
+		getProperties(json);
+	}
+	else if (checksum != currentChecksum) {
 		currentChecksum = checksum;
 		getProperties(json);
 		console.warn("Data Update Needed");

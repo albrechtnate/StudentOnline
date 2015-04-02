@@ -46,6 +46,8 @@ function diffcheck(checksum, json) {
 	else if (checksum != currentChecksum) {
 		currentChecksum = checksum;
 		getProperties(json);
-		console.warn("Data Update Needed");
+		notify("Data Has Been Updated", "Click to refresh the page and update the data", "dataupdate", "", function(){
+			loadContent('dashboard');
+		});
 	}
 }

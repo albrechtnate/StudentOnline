@@ -5,18 +5,18 @@ if (Notification.permission == "default"){
 	Notification.requestPermission();
 }
 
-function notify (title, description, tag, icon) {
+function notify (title, description, tag, icon, onclick) {
 	if (Notification.permission == "granted"){
-		if (icon == ""){ icon = "http://bdpamiddletn.org.previewdns.com/wp-content/uploads/2011/11/Categories-applications-education-university.ico"; }
-		console.log(icon);
+		if (icon === ""){ icon = "http://icons.iconarchive.com/icons/matthew-kelleigh/mac-town-vol2/32/School-Bus-1-icon.png"; }
 		var notification = new Notification(title, {
 			body: description,
 			tag: tag,
 			icon: icon
 		});
+		if (onclick !== ""){ notification.onclick = onclick; }
 	}
 	else{
-		console.warn("Permission to display notifications has not been granted.")
+		console.warn("Permission to display notifications has not been granted.");
 		alert(title);
 	}
 }

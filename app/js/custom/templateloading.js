@@ -5,6 +5,8 @@
 // Asynchronously Loads the HTML Template for the Requested Page
 function loadContent(file) {
 
+	contentObj.currentPage = file;
+
 	xmlhttp=new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange=function() {

@@ -47,7 +47,7 @@ function diffcheck(checksum, json) {
 		currentChecksum = checksum;
 		getProperties(json);
 		notify("Data Has Been Updated", "Click to refresh the page and update the data", "dataupdate", "", function(){
-			loadContent('dashboard');
+			loadContent(contentObj.currentPage);
 		});
 	}
 }

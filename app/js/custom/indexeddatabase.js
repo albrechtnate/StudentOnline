@@ -5,7 +5,7 @@
 // Establishes the Indexed Database
 function establishIDB() {
 
-	var version = 13;
+	var version = 14;
 	var request = window.indexedDB.open("data", version);
 
 	request.onupgradeneeded = function(e) {
@@ -14,8 +14,14 @@ function establishIDB() {
 		if(db.objectStoreNames.contains("student")) {
 			db.deleteObjectStore("student");
 		}
-		if (!db.objectStoreNames.contains("student")) {
-			db.createObjectStore("student");
+		if(db.objectStoreNames.contains("localchanges")) {
+			db.deleteObjectStore("localchanges");
+		}
+		if (!db.objectStoreNames.contains("localchanges")) {
+			db.createObjectStore("localchanges");
+		}
+		if (!db.objectStoreNames.contains("localchanges")) {
+			db.createObjectStore("localchanges");
 		}
 	};
 	request.onsuccess = function(e) {

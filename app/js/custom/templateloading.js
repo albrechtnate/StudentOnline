@@ -14,6 +14,7 @@ function loadContent(file) {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			document.getElementById("content-section").innerHTML=xmlhttp.responseText;
 			loadJSTemplate(file);
+			contentEditableWatcher();
 		}
 		if (xmlhttp.readyState==4 && xmlhttp.status==404) {
 			document.getElementById("content-section").innerHTML='<div data-alert="" class="alert-box alert radius">Page failed to load. Sorry about that!<a href="#" class="close">×</a></div>';

@@ -36,10 +36,10 @@ function establishIDB() {
 }
 
 // Inserts Data Into the Indexed Database
-function insertIntoIDB(key, object) {
+function insertIntoIDB(objectstore, key, object) {
 
-	var transaction = db.transaction(["student"],"readwrite");
-	var store = transaction.objectStore("student");
+	var transaction = db.transaction([objectstore],"readwrite");
+	var store = transaction.objectStore(objectstore);
 	var request = store.put(object, key);
 }
 

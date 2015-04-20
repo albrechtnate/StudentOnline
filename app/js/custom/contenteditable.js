@@ -14,9 +14,8 @@ function contentEditableWatcher() {
 }
 
 function getUpdatedContent(target){
-	var id = $(target).attr("id");
-	var data = $(target).text();
-	var transaction = db.transaction(["localchanges"],"readwrite");
-	var store = transaction.objectStore("localchanges");
-	var request = store.put(data, id);
+	var timestamp = Date.now();
+	var data = {timestamp: timestamp, elementID: $(target).attr("id"), data: $(target).text()};
+	var date = JSON.stringify(data);
+	insertIntoIDB("localchanges", timestamp, data);
 }

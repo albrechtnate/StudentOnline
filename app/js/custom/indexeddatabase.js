@@ -65,3 +65,20 @@ function getDataFromIDB(datakey, value, optional_second_value, callback) {
         }
 	};
 }
+
+// Retrieves List of Local Changes
+function getLocalChanges() {
+	var transaction = db.transaction(["localchanges"], "readonly");
+	var objectStore = transaction.objectStore("localchanges");
+	objectStore.openCursor().onsuccess = function(event){
+		var cursor = event.target.result;
+		// var localchangesobject =
+		if (cursor){
+			console.log(cursor.value);
+			cursor.continue();
+		}
+		else{
+			console.log("All Entries Displayed");
+		}
+	};
+}

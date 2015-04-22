@@ -5,20 +5,20 @@
 // Establishes the Indexed Database
 function establishIDB() {
 
-	var version = 14;
-	var request = window.indexedDB.open("data", version);
+	var version = 2;
+	var request = window.indexedDB.open("StudentOnline", version);
 
 	request.onupgradeneeded = function(e) {
 		console.log("Upgrading...");
 		db = e.target.result;
-		if(db.objectStoreNames.contains("student")) {
-			db.deleteObjectStore("student");
+		if(db.objectStoreNames.contains("datastore")) {
+			db.deleteObjectStore("datastore");
 		}
-		if(db.objectStoreNames.contains("localchanges")) {
-			db.deleteObjectStore("localchanges");
+		if(db.objectStoreNames.contains("localhanges")) {
+			db.deleteObjectStore("localhanges");
 		}
-		if (!db.objectStoreNames.contains("localchanges")) {
-			db.createObjectStore("localchanges");
+		if (!db.objectStoreNames.contains("datastore")) {
+			db.createObjectStore("datastore");
 		}
 		if (!db.objectStoreNames.contains("localchanges")) {
 			db.createObjectStore("localchanges");
@@ -46,8 +46,8 @@ function insertIntoIDB(objectstore, key, object) {
 // Retrieves Data From the Indexed Database
 function getDataFromIDB(datakey, value, optional_second_value, callback) {
 
-	var transaction = db.transaction(["student"], "readonly");
-	var objectStore = transaction.objectStore("student");
+	var transaction = db.transaction(["datastore"], "readonly");
+	var objectStore = transaction.objectStore("datastore");
 	var ob = objectStore.get(datakey);
 	value = value || null;
 	optional_second_value = optional_second_value || null;

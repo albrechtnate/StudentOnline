@@ -23,7 +23,7 @@ function loadJSON(file) {
 function getProperties(object) {
 
 	for (var key in object) {
-			insertIntoIDB("student", key, object[key]);
+			insertIntoIDB("datastore", key, object[key]);
 	}
 }
 

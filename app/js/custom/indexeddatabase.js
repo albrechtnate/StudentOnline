@@ -70,15 +70,15 @@ function getDataFromIDB(datakey, value, optional_second_value, callback) {
 function getLocalChanges() {
 	var transaction = db.transaction(["localchanges"], "readonly");
 	var objectStore = transaction.objectStore("localchanges");
+	var localchangesobject = {};
 	objectStore.openCursor().onsuccess = function(event){
 		var cursor = event.target.result;
-		// var localchangesobject =
 		if (cursor){
-			console.log(cursor.value);
+			localchangesobject[cursor.value.elementID] = cursor.value.data;
 			cursor.continue();
 		}
 		else{
-			console.log("All Entries Displayed");
+			console.log(localchangesobject);
 		}
 	};
 }

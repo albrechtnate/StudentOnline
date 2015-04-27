@@ -44,7 +44,9 @@ function insertIntoIDB(objectstore, key, object) {
 }
 
 // Retrieves Data From the Indexed Database
-function getDataFromIDB(datakey, value, optional_second_value, callback) {
+function getDataFromIDB(datakey, value, optional_second_value, callback, localchangesobject) {
+
+	getLocalChanges(value, callback);
 
 	var transaction = db.transaction(["datastore"], "readonly");
 	var objectStore = transaction.objectStore("datastore");
@@ -66,8 +68,16 @@ function getDataFromIDB(datakey, value, optional_second_value, callback) {
 	};
 }
 
+function checkInLocalChanges(localchangesobject, value, callback) {
+
+	if (value in localchangesobject){
+		callback(localchangesobject[value]);
+	}
+}
+
 // Retrieves List of Local Changes
-function getLocalChanges() {
+function getLocalChanges(value, callback) {
+
 	var transaction = db.transaction(["localchanges"], "readonly");
 	var objectStore = transaction.objectStore("localchanges");
 	var localchangesobject = {};
@@ -78,7 +88,7 @@ function getLocalChanges() {
 			cursor.continue();
 		}
 		else{
-			console.log(localchangesobject);
+			checkInLocalChanges(localchangesobject, value, callback);
 		}
 	};
 }

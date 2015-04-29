@@ -13,6 +13,7 @@ function contentEditableWatcher() {
 	});
 }
 
+// Inserts Edited Data Into IDB
 function getUpdatedContent(target){
 	var timestamp = Date.now();
 	var data = {timestamp: timestamp, elementID: $(target).attr("id"), data: $(target).text()};

@@ -33,6 +33,7 @@ function syncLooper(){
 	loadJSON();
 	window.setInterval(function(){
 		loadJSON();
+		// sendChanges();
 	}, 5000);
 }
 
@@ -50,4 +51,13 @@ function diffcheck(checksum, json) {
 			loadContent(contentObj.currentPage);
 		});
 	}
+}
+
+// Packages Changes in Local Changes IDB Into JSON and Sends Them to the Server
+function sendChanges() {
+	getLocalChanges("", function(result){
+		$.post("backend/hypotheticalnodefile.js", JSON.stringify(result), function(data){
+			// Clear Local Changes IDB
+		});
+	}, true);
 }

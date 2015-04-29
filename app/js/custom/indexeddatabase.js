@@ -68,6 +68,7 @@ function getDataFromIDB(datakey, value, optional_second_value, callback, localch
 	};
 }
 
+// Checks the Local Changes Table For Objects That Match
 function checkInLocalChanges(localchangesobject, value, callback) {
 
 	if (value in localchangesobject){
@@ -76,7 +77,7 @@ function checkInLocalChanges(localchangesobject, value, callback) {
 }
 
 // Retrieves List of Local Changes
-function getLocalChanges(value, callback) {
+function getLocalChanges(value, callback, forsync) {
 
 	var transaction = db.transaction(["localchanges"], "readonly");
 	var objectStore = transaction.objectStore("localchanges");
@@ -86,6 +87,9 @@ function getLocalChanges(value, callback) {
 		if (cursor){
 			localchangesobject[cursor.value.elementID] = cursor.value.data;
 			cursor.continue();
+		}
+		else if (forsync === true){
+			callback(localchangesobject);
 		}
 		else{
 			checkInLocalChanges(localchangesobject, value, callback);

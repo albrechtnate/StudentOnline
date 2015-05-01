@@ -33,7 +33,7 @@ function syncLooper(){
 	loadJSON();
 	window.setInterval(function(){
 		loadJSON();
-		// sendChanges();
+		sendChanges();
 	}, 5000);
 }
 
@@ -57,7 +57,7 @@ function diffcheck(checksum, json) {
 function sendChanges() {
 	getLocalChanges("", function(result){
 		$.post("backend/hypotheticalnodefile.js", JSON.stringify(result), function(data){
-			// Clear Local Changes IDB
+			wipeObjectStore('localchanges');
 		});
 	}, true);
 }

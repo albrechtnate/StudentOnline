@@ -68,6 +68,20 @@ function getDataFromIDB(datakey, value, optional_second_value, callback, localch
 	};
 }
 
+// Wipe ObjectStore
+function wipeObjectStore(store) {
+
+	var transaction = db.transaction([store], "readwrite");
+	var objectStore = transaction.objectStore(store);
+	objectStore.openCursor().onsuccess = function(event){
+		var cursor = event.target.result;
+		if (cursor){
+			objectStore.delete(cursor.key);
+			cursor.continue();
+		}
+	};
+}
+
 // Checks the Local Changes Table For Objects That Match
 function checkInLocalChanges(localchangesobject, value, callback) {
 

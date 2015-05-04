@@ -33,7 +33,7 @@ function syncLooper(){
 	loadJSON();
 	window.setInterval(function(){
 		loadJSON();
-		sendChanges();
+		// sendChanges();
 	}, 5000);
 }
 

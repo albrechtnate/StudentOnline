@@ -1,0 +1,10 @@
+<h1>Service Worker Test</h1>
+
+<script>
+	navigator.serviceWorker.register('/workertest.js')
+	.then(function(reg) {
+		console.log('Success!', reg);
+	}, function(err) {
+		console.log('Error!', err);
+	});
+</script>

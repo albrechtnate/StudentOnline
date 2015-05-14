@@ -1,5 +1,7 @@
 # StudentOnline - Wilmington Christian School Classs of 2015 Senior Computing Project
 
+[The Project Presentation](http://albrechtnate.github.io/StudentOnline/)
+
 StudentOnline is a web application designed to help Teachers, Students, and Administrators manage their grades and academic lives online.
 
 Thesis: *Prove by example that "Web applications, with the technology available to us today, are serious alternatives to traditional native-based applications."*
